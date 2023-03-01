@@ -7,7 +7,7 @@ class database {
 
 
     function __construct(){
-        $this -> mysqli = new mysqli("localhost","root","","poll_online");
+        $this -> mysqli = new mysqli("localhost","krujucom_pntcdb5","8fQxEjKzm","krujucom_pntcdb5");
         mysqli_query($this -> mysqli,"SET NAMES utf8");
         date_default_timezone_set("Asia/Bangkok");
     }

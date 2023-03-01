@@ -163,7 +163,6 @@ if(isset($_GET['active'])){
                                 <tr>
                                     <th>ชื่อ</th>
                                     <th>วันที่สมัคร</th>
-                                    <th>แผนก</th>
                                     <th>จัดการ</th>
                                 </tr>
                             </thead>
