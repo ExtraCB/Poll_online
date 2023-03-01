@@ -59,7 +59,7 @@ $userid = $_SESSION['userid'];
 
                         while($fetch_option = $db_option -> query -> fetch_object()){
                             if($fetch_option -> sum != 0){
-                                $percent = $fetch_option -> sum * 100 / $fetchsum_vote['count'];
+                                $percent = number_format($fetch_option -> sum * 100 / $fetchsum_vote['count'],'2');
                             }else{
                                 $percent = 0;
                             }
@@ -68,7 +68,8 @@ $userid = $_SESSION['userid'];
                         <b><?= $fetch_option -> text_po ?></b>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: <?= $percent ?>%;"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="<?= $fetchsum_vote['count'] ?>"><?= $percent ?>%
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="<?= $fetchsum_vote['count'] ?>">
+                                <?= $percent ?>%
                             </div>
                         </div>
                         <?php }  ?>
