@@ -1,6 +1,6 @@
 <?php 
 
-$menu = ["Homepage","History_Poll"];
+$menu = ["Homepage"];
 
 $profile = new database();
 $userid = $_SESSION['userid'];

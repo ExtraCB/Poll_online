@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2023 at 03:30 AM
+-- Generation Time: Mar 01, 2023 at 09:20 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+
 --
 -- Table structure for table `poll_header`
 --
@@ -33,6 +34,14 @@ CREATE TABLE `poll_header` (
   `status_ph` int(1) NOT NULL DEFAULT 1,
   `timestamp_ph` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `poll_header`
+--
+
+INSERT INTO `poll_header` (`id_ph`, `text_ph`, `status_ph`, `timestamp_ph`) VALUES
+(2, 'ภาษาไหนน่าสนใจที่สุดในปี 2022', 1, '2023-03-01 02:50:32'),
+(3, 'Database ที่น่าสนใจ 2023', 1, '2023-03-01 02:55:39');
 
 -- --------------------------------------------------------
 
@@ -47,6 +56,18 @@ CREATE TABLE `poll_option` (
   `timestamp_po` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `poll_option`
+--
+
+INSERT INTO `poll_option` (`id_po`, `text_po`, `ph_po`, `timestamp_po`) VALUES
+(6, 'Python', 2, '2023-03-01 04:22:04'),
+(8, 'javascript', 2, '2023-03-01 04:22:45'),
+(9, 'Java', 2, '2023-03-01 04:22:56'),
+(10, 'MongoDB', 3, '2023-03-01 04:23:25'),
+(11, 'MariaDB', 3, '2023-03-01 04:23:33'),
+(12, 'PostgreSQL', 3, '2023-03-01 04:23:52');
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +80,14 @@ CREATE TABLE `poll_status` (
   `po_ps` int(11) NOT NULL,
   `timestamp_ps` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `poll_status`
+--
+
+INSERT INTO `poll_status` (`id_ps`, `own_ps`, `po_ps`, `timestamp_ps`) VALUES
+(3, 11, 9, '2023-03-01 05:56:28'),
+(4, 12, 6, '2023-03-01 08:17:54');
 
 -- --------------------------------------------------------
 
@@ -105,8 +134,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username_user`, `password_user`, `fname_user`, `lname_user`, `address_user`, `tel_user`, `file_user`, `status_user`, `table_user`, `type_user`, `timestamp_user`) VALUES
-(10, 'admin', '1234', 'Admin', 'Poll', 'Thailand', '06333333', '1351037128.jfif', '1', NULL, 2, '2023-02-26 03:09:26'),
-(11, 'person1', '1234', 'person', 'lastname1', 'Thailand', '0633333322', '1141523915.jfif', '1', NULL, 1, '2023-02-26 06:58:25');
+(10, 'admin', '1234', 'Admin', 'Poll', 'Thailand', '06333333', '2107528912.jpg', '1', NULL, 2, '2023-02-26 03:09:26'),
+(11, 'person1', '1234', 'person', 'lastname1', 'Thailand', '0633333322', '1141523915.jfif', '1', NULL, 1, '2023-02-26 06:58:25'),
+(12, 'person2', '1234', 'person2', 'lastname2', 'Thailand', '0633333322', '1141523915.jfif', '1', NULL, 1, '2023-02-26 06:58:25');
 
 --
 -- Indexes for dumped tables
@@ -155,19 +185,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `poll_header`
 --
 ALTER TABLE `poll_header`
-  MODIFY `id_ph` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ph` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `poll_option`
 --
 ALTER TABLE `poll_option`
-  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `poll_status`
 --
 ALTER TABLE `poll_status`
-  MODIFY `id_ps` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `types`
@@ -179,7 +209,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
